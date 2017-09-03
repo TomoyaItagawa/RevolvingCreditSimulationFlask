@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>結果</h1><hr>
+<table class="pure-table">
+  <thead>
+    <tr>
+      <th>回数</th>
+      <th>支払い金額</th>
+      <th>元金</th>
+      <th>支払利息</th>
+      <th>支払い後残高</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for list in result_list %}
+    {% if loop.index % 2 != 0 %}
+    <tr class="pure-table-odd">
+    {% else %}
+    <tr>
+    {% endif %}
+      {% for value in list %}
+      <td>{{value}}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p>支払い回数: {{result.month}}</p>
+<p>支払利息総額: {{result.interest_amount}}</p>
+<p>支払い総額: {{result.payment_amount}}</p>
+{% endblock %}

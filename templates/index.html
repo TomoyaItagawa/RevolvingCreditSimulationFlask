@@ -1,24 +1,21 @@
-<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% extends "layout.html" %}
+{% block body %}
+<h1>リボ払い怖いよシミュレーション</h1><hr>
+<form class="pure-form pure-form-aligned" method="post" action="/result">
+  <fieldset>
+    <div class="pure-control-group">
+      <label for="borrowing">利用予定金額（円）</label>
+      <input name="borrowing" type="text" placeholder="（例）50,000">
+    </div>
 
-  <title>リボ払い怖いよシミュレーション</title>
-  <meta name="description" content="リボ払いの怖さをシミュレーションで見せる">
-  <meta name="author" content="gawawa124">
+    <div class="pure-control-group">
+      <label for="repayment">月々の返済額（円）</label>
+      <input name="repayment" type="text" placeholder="（例）5,000">
+    </div>
 
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
-</head>
-
-<body>
-  <h1>リボ払い怖いよシミュレーション</h1><hr>
-  <form name="form", method="post", action="/cgi-bin/form.py">
-    利用予定金額: <input type="text" size="30" name="borrowing">
-    月々の返済額: <input type="text" size="30" name="repayment">
-    <input type="submit" value="submit" name="button">
-  </form>
-
-  <!-- <script src="js/scripts.js"></script> -->
-</body>
-</html>
+    <div class="pure-controls">
+      <button type="submit" class="pure-button pure-button-primary">計算する</button>
+    </div>
+  </fieldset>
+</form>
+{% endblock %}
