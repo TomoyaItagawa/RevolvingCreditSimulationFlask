@@ -2,9 +2,16 @@
 
 from flask import Flask, render_template, request
 import simulator
+import requests
 
 app = Flask(__name__)
-app.config.from_object("config")
+
+url = "https://api.heroku.com/apps/revolving-credit-simulation/config-vars"
+headers = {"Accept": "application/vnd.heroku+json; version=3"}
+response = requests.get(url, headers=headers).json()
+
+app.config["KEEN_PROJECT_ID"] = response["KEEN_PROJECT_ID"]
+app.config["KEEN_WRITE_KEY"] = response["KEEN_WRITE_KEY"]
 
 @app.route("/")
 def index():

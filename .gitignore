@@ -104,6 +104,3 @@ ENV/
 
 # .DS_Store
 .DS_Store
-
-# my_application
-config.py
