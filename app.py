@@ -11,10 +11,13 @@ def index():
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
-    borrowing = int(request.form["borrowing"])
-    repayment = int(request.form["repayment"])
-    result, result_list = simulator.simulate(borrowing, repayment)
-    return render_template("result.html", result=result, result_list=result_list)
+    borrowing = request.form.get("borrowing", type=int)
+    repayment = request.form.get("repayment", type=int)
+    if borrowing is None or repayment is None:
+        return render_template("error.html", error="入力欄に数字を入力してください。")
+    else:
+        result, result_list = simulator.simulate(borrowing, repayment)
+        return render_template("result.html", result=result, result_list=result_list)
 
 if __name__ == "__main__":
     app.run(debug=True)
