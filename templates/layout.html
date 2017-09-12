@@ -13,12 +13,7 @@
   href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
   integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
   crossorigin="anonymous">
-  <style type="text/css">
-  body {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  </style>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='common.css')}}">
 
   {% if config.DEBUG == False %}
   <script type="text/javascript" src="{{url_for('static', filename='keenio.js')}}">

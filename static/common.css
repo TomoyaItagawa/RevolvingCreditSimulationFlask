@@ -1,0 +1,11 @@
+body {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+h2 {
+  padding: 0.25em 0.5em;
+  color: #494949;
+  background: transparent;
+  border-left: solid 5px #137be4;
+}

@@ -30,6 +30,10 @@ def __simulate_fixed_rate(borrowing, repayment):
 
     i = 0
     while(balance > 0):
+        if i >= 1000:
+            month = 1001
+            break
+
         interest = int(balance * rate / 12)
         if balance + interest > repayment:
             payment = repayment
@@ -68,6 +72,9 @@ def __simulate_fixed_capital(borrowing, repayment):
     for i in range(month):
         if i == month - 1:
             capital = borrowing - repayment * i
+        elif i >= 1000:
+            result["month"] = 1001
+            break
         else:
             capital = repayment
 
