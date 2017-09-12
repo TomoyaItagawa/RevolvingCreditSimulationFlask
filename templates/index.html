@@ -1,12 +1,21 @@
 {% extends "layout.html" %}
 {% block body %}
 <h1>リボ払い怖いよシミュレーション</h1>
-<h3>※年利15%, 毎月の返済元本（元金）が均等の返済方式としています</h3>
+<h3>※年利15%としています</h3>
 <hr>
 <form class="pure-form pure-form-aligned" method="post" action="/result">
   <fieldset>
     <div class="pure-control-group">
-      <label for="borrowing">利用予定金額（円）</label>
+      <label for="payment_type" class="pure-radio">
+        返済方法
+      </label>
+      <input name="payment_type" type="radio" value="1" checked> 元利金等
+      <input name="payment_type" type="radio" value="2"> 元金均等
+      <span class="pure-form-message-inline"><a href="/explanation">返済方法について詳しく知る</a></span>
+    </div>
+
+    <div class="pure-control-group">
+      <label for="borrowing">利用金額（円）</label>
       <input name="borrowing" type="text" placeholder="（例）50,000">
     </div>
 
