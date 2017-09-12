@@ -3,8 +3,8 @@
 <h1>結果</h1><hr>
 
 <p>支払い回数: {{result.month}}回</p>
-<p>支払い総額: {{result.payment_amount}}円</p>
-<p style="color:#b33e5c; font-size:150%; font-weight:bold">支払利息総額: {{result.interest_amount}}円</p>
+<p>支払い総額: {{"{:,d}円".format(result.payment_amount)}}</p>
+<p style="color:#b33e5c; font-size:150%; font-weight:bold">支払利息総額: {{"{:,d}円".format(result.interest_amount)}}</p>
 <p style="font-size:125%; font-weight:bold">利用金額を減らすか返済金額を増やしましょう。</p>
 
 <table class="pure-table">
@@ -26,7 +26,11 @@
     <tr>
     {% endif %}
       {% for value in list %}
+      {% if loop.index == 1 %}
       <td>{{value}}</td>
+      {% else %}
+      <td>{{"{:,d}円".format(value)}}</td>
+      {% endif %}
       {% endfor %}
     </tr>
     {% endfor %}
