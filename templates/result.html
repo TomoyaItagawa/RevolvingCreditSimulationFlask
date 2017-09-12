@@ -3,12 +3,12 @@
 <h1>結果</h1><hr>
 
 {% if result.month > 1000 %}
-<p>支払い回数が1000回になっても支払いが終わりませんでした。</p>
+<p style="color:#b33e5c; font-size:150%; font-weight:bold">支払い回数が1000回になっても支払いが終わりませんでした。</p>
 {% else %}
 <p>支払い回数: {{result.month}}回</p>
-{% endif %}
 <p>支払い総額: {{"{:,d}円".format(result.payment_amount)}}</p>
 <p style="color:#b33e5c; font-size:150%; font-weight:bold">支払利息総額: {{"{:,d}円".format(result.interest_amount)}}</p>
+{% endif %}
 <p style="font-size:125%; font-weight:bold">利用金額を減らすか返済金額を増やしましょう。</p>
 
 <table class="pure-table">
